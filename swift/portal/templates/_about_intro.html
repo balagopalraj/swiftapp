@@ -1,0 +1,47 @@
+        <!-- Intro Content -->
+        <div class="row">
+            <div class="col-md-6">
+                <img class="img-responsive" src="http://intranet.teamlease.com/Images/login_img.gif" alt="">
+            </div>
+            <div class="col-md-6">
+
+
+                <form name="sentMessage" id="contactForm" validate action="/LogMeIn/" method="post">
+                    {% csrf_token %}
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>User Name:</label>
+                            <input type="text" class="form-control" id="name"  required data-validation-required-message="Please enter username." name="user">
+                            <p class="help-block"></p>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Password:</label>
+                            <input type="password" class="form-control" id="phone" required data-validation-required-message="Please enter your password." name="password">
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Select Your Project:</label>
+                            <select class="form-control" name="project">
+                                {% for project in projects %}
+         		            <option value="{{ project }}">{{ project }}
+                                {% endfor %}
+			    </select>
+                        </div>
+                    </div>
+                    {% if isInValidUser %}
+                        <div id="failure" style="color:red"><strong>* Invalid Credentials</strong></div>
+                    {% else %}
+                        <div id="succes">&nbsp</div>
+                    {% endif %}
+                    <!-- For success/fail messages -->
+                    <br>
+                    <button type="submit" class="btn btn-primary">Log Me In</button>
+                </form>
+
+
+            </div>
+        </div>
+        <!-- /.row -->

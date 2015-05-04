@@ -1,0 +1,68 @@
+        <!-- Intro Content -->
+        <div class="row">
+            <div class=col-lg-12>
+                <h2>Here Are Your The Files</h2>
+
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>File Name</th>
+                <th>Size</th>
+                <th>Last Modified</th>
+                <th>Download Here</th>
+              </tr>
+            </thead>
+          {% for file in files %}
+
+            <tbody>
+              <tr>
+                <td>{{ forloop.counter0 }}</td>
+                <td><strong>{{ file.name }}</strong></td>
+                <td>{{ file.bytes }}</td>
+                <td>{{ file.last_modified }}</td>
+                <td><a href="/Download/{{ folder }}/{{ file.name }}">Donwload</a></td>
+              </tr>
+            </tbody>
+          {% endfor %}
+
+          </table>
+
+                <!--form name="sentMessage" id="contactForm" validate action="/LogMeIn/" method="post">
+                    {% csrf_token %}
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>User Name:</label>
+                            <input type="text" class="form-control" id="name"  required data-validation-required-message="Please enter username." name="user">
+                            <p class="help-block"></p>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Password:</label>
+                            <input type="password" class="form-control" id="phone" required data-validation-required-message="Please enter your password." name="password">
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Select Your Project:</label>
+                            <select class="form-control" name="project">
+                                {% for project in projects %}
+         		            <option value="{{ project }}">{{ project }}
+                                {% endfor %}
+			    </select>
+                        </div>
+                    </div>
+                    {% if isInValidUser %}
+                        <div id="failure" style="color:red"><strong>* Invalid Credentials</strong></div>
+                    {% else %}
+                        <div id="succes">&nbsp</div>
+                    {% endif %}
+                    <br>
+                    <button type="submit" class="btn btn-primary">Log Me In</button>
+                </form-->
+
+
+            </div>
+        </div>
+        <!-- /.row -->
